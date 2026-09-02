@@ -3,75 +3,50 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Forecast / Build / Grow</title>
+    <title>The Mission Automation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
     />
-    <script type="module" crossorigin src="/fbg-review/assets/index-CD-Bp2aQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/fbg-review/assets/index-DbKTqqDZ.css">
+    <script type="module" crossorigin src="/fbg-review/assets/index-BFWGD9FB.js"></script>
+    <link rel="stylesheet" crossorigin href="/fbg-review/assets/index-DBuamdg-.css">
   </head>
   <body>
     <!--
-      REGIONS ARE LOAD-BEARING. Each is owned by exactly one module, so the
-      layout order encodes two rulings that must not drift:
+      THE SURFACE (Adam, 2026-09-02). Everything a prospect reads is in
+      surface/copy.ts, in order; nothing else is on the page.
 
-        * the CONSTRAINT LEADS and the findings support (Adam item 7) — the
-          binding constraint renders above the findings channel, always;
-        * the DECLINE PATH IS NEVER HIDDEN (§6.3, §3.2) — routing renders in
-          the same place whichever exit fires, with no variant suppressed and
-          no gate in front of it.
+      Regions, in the order they are read:
+        #seam     the honesty seam — appears only when the loader refuses
+                  the pack for the demo surface; not part of the page
+        #cloud    present from first paint (the global prior), takes shape
+                  at the second screen, tightens with every answer, deforms
+                  under the handle. It is drawn, never labelled: no number
+                  before the answer.
+        #screens  the way in and the five screens after it, one question
+                  each, one persistent element that changes in place
+        #answer   the reason line from screen two (light), the sentence when
+                  it lands, the handle, one action, keep this
+        #site     three words. About. Privacy. Contact.
     -->
-    <a class="skip-link" href="#main">Skip to the forecast</a>
+    <a class="skip-link" href="#screens">Skip to the question</a>
 
-    <!-- honest dev seam: the demo surface refuses synthetic priors in code -->
-    <div id="launch-seam" role="status"></div>
+    <div id="seam" role="status"></div>
 
-    <header class="masthead">
-      <p class="eyebrow">Forecast · Build · Grow</p>
-      <div id="progress" class="progress" role="group" aria-label="Progress"></div>
-    </header>
+    <main id="surface">
+      <div id="cloud" class="cloud" aria-hidden="false">
+        <canvas id="cloud-canvas" role="img" aria-describedby="cloud-a11y"></canvas>
+        <p id="cloud-a11y" class="visually-hidden"></p>
+      </div>
 
-    <main id="main">
-      <!-- one input per view, never a form wall (§3.2 cognitive load) -->
-      <section id="step" class="step" aria-live="polite"></section>
+      <section id="screens" class="screens" aria-live="polite"></section>
 
-      <section id="forecast" class="forecast" hidden>
-        <div id="headline" class="headline"></div>
-        <div class="cloud-wrap">
-          <!--
-            role="img" needs a NAME as well as a description. The name is this
-            fixed label; the description is the narration @fbg/ui writes into
-            #cloud-a11y on every run, which is the full text equivalent of the
-            distribution (§10.5 — the static equivalent loses no information).
-            Without the label a screen reader announces the role and nothing
-            else, on the one element carrying the whole forecast.
-          -->
-          <canvas
-            id="cloud"
-            width="880"
-            height="640"
-            role="img"
-            aria-label="Revenue forecast, drawn as a density cloud"
-            aria-describedby="cloud-a11y"
-          ></canvas>
-          <p id="cloud-a11y" class="visually-hidden"></p>
-        </div>
-        <div id="threshold" class="threshold"></div>
-        <!-- constraint first, findings second — the ordering is the ruling -->
-        <div id="constraint" class="constraint"></div>
-        <div id="findings" class="findings"></div>
-        <div id="allocation" class="allocation"></div>
-        <div id="diagnostics" class="diagnostics"></div>
-        <div id="disclosure" class="disclosure"></div>
-      </section>
-
-      <section id="routing" class="routing" hidden></section>
+      <section id="answer" class="answer"></section>
     </main>
 
-    <footer id="footer" class="footer"></footer>
+    <footer id="site" class="site"></footer>
 
   </body>
 </html>
