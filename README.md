@@ -1,9 +1,15 @@
-﻿# The surface — review build
+# Headroom — the demo
 
-The prospect-facing surface, built to Adam's page (2026-09-02): everything a
-prospect reads, in order, and nothing else. Internal review only: the prior
-pack is synthetic, so the banner at the top says the build must not be shown
-to a prospect and the footer states the pack positively. Every shape and
-sentence is real engine output.
+**The demo is here, and nowhere else: https://sevenfourse01.github.io/fbg-review/**
 
-`fbg-demo-run.webm` is the recorded end-to-end run of this build.
+That is the interactive surface — the way in, the cloud, the five screens, the
+three answers, the handle, About this, and the calendar. This repository page
+is only its hosting; nothing on this page is the demo.
+
+The recording (`fbg-demo-run.webm`, 87 seconds, no narration) is a camera on
+that URL: https://sevenfourse01.github.io/fbg-review/fbg-demo-run.webm. It is
+not the demo either.
+
+Built from the FBG engine repository (private); every shape and sentence on the
+page is real engine output on the elicited prior pack (`elicited-2026.09.04`),
+which the page states in About this.
