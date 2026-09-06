@@ -14,49 +14,57 @@
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Sora LIGHT for display (Adam, v2 §11: "Light, not bold. Bold is a landing page.") -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
     />
-    <script type="module" crossorigin src="/fbg-review/assets/index-BboalKfB.js"></script>
-    <link rel="stylesheet" crossorigin href="/fbg-review/assets/index-Dw39fHG7.css">
+    <script type="module" crossorigin src="/fbg-review/assets/index-Z1hZ5SPi.js"></script>
+    <link rel="stylesheet" crossorigin href="/fbg-review/assets/index-Bcc9ORVN.css">
   </head>
   <body>
     <!--
-      THE SURFACE (Adam, 2026-09-02). Everything a prospect reads is in
-      surface/copy.ts, in order; nothing else is on the page.
+      THE SURFACE (Adam, 2026-09-02; re-grounded by the visual brief v2,
+      2026-09-06). Everything a prospect reads is in surface/copy.ts, in
+      order; nothing else is on the page.
 
-      Regions, in the order they are read:
+      One continuous zoom into their business (v2 §1). Regions:
         #seam     the honesty seam — appears only when the loader refuses
                   the pack for the demo surface; not part of the page
-        #cloud    THE ROOM (Adam, 2026-09-05): the middle of the viewport,
-                  present from first paint (the global prior), takes shape
-                  at the second screen, tightens with every answer, deforms
-                  under the handle. Two hairlines — the baseline and the
-                  median — and no number: it is drawn, never labelled.
-        #screens  the caption under the room: the way in and the five
-                  screens after it, one question each, one persistent
-                  element that changes in place
-        #answer   the reason line from screen two (light), the sentence when
-                  it lands, the handle, one action, keep this
+        #cloud    THE GROUND of every screen: ink on paper, centred, large,
+                  present from first paint (the global prior), in focus as
+                  they answer, rippling under every keystroke. Drawn, never
+                  labelled: no number before the answer. The amber edge
+                  stands at the ceiling when a constraint binds.
+        #rail     the tech tree: the zoom indicator, the goal gradient and
+                  the sensitivity panel as one object (v2 §5)
+        #screens  the questions, floating over the cloud, one at a time
+        #answer   the answer at zoom 0: sentence, reason, knob, action
+        #canvas   the results canvas at zoom 1 and 2 (v2 §7)
+        #context  the Tell-us-more panel (v2 §6)
         #site     three words. About. Privacy. Contact.
     -->
     <a class="skip-link" href="#screens">Skip to the question</a>
 
     <div id="seam" role="status"></div>
 
+    <div id="cloud" class="cloud" aria-hidden="false">
+      <canvas id="cloud-canvas" role="img" aria-describedby="cloud-a11y"></canvas>
+      <!-- the constraint edge: positioned by surface/cloud.ts while a ceiling binds -->
+      <div class="cloud__ceiling" data-slot="ceiling" aria-hidden="true" hidden></div>
+      <p id="cloud-a11y" class="visually-hidden"></p>
+    </div>
+
+    <nav id="rail" class="rail"></nav>
+
     <main id="surface">
-      <div id="cloud" class="cloud" aria-hidden="false">
-        <canvas id="cloud-canvas" role="img" aria-describedby="cloud-a11y"></canvas>
-        <!-- the baseline (zero uplift: where they are now) and the median, positioned by surface/cloud.ts -->
-        <div class="cloud__hair cloud__hair--baseline" data-slot="hair-baseline" aria-hidden="true" hidden></div>
-        <div class="cloud__hair cloud__hair--median" data-slot="hair-median" aria-hidden="true" hidden></div>
-        <p id="cloud-a11y" class="visually-hidden"></p>
-      </div>
+      <section id="screens" class="screens view" aria-live="polite"></section>
 
-      <section id="screens" class="screens" aria-live="polite"></section>
+      <section id="answer" class="answer view"></section>
 
-      <section id="answer" class="answer"></section>
+      <section id="canvas" class="canvas" hidden></section>
+
+      <aside id="context" class="context-host" hidden></aside>
     </main>
 
     <footer id="site" class="site"></footer>
